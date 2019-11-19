@@ -29,7 +29,7 @@ public class ProductosService implements IProductoService{
 	}
 
 	@Override
-	public List<Producto> getProductosNegocio(Integer negid) {
+	public List<Producto> getProductosNegocio(Long negid) {
 		return(List<Producto>)productoDao.findByProneg(negid);
 	}
 

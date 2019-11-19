@@ -13,7 +13,7 @@ public class Producto implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer proid;
+	private Long proid;
 	private String procodigo;
 	private String pronombre;
 	private Integer prostock;
@@ -25,12 +25,12 @@ public class Producto implements Serializable{
 		
 	}
 
-	public Integer getProid() {
+	public Long getProid() {
 		return proid;
 	}
 
 
-	public void setProid(Integer proid) {
+	public void setProid(Long proid) {
 		this.proid = proid;
 	}
 

@@ -10,7 +10,7 @@ public interface INegociosService {
 	public List<Negocio>findAll();
 	public void saveNegocio(Negocio negocio);
 	public Negocio updateNegocio(Negocio negocio);
-	public List<Negocio>getNegociosUsuario(Integer usuid);
-	public Negocio findById(Integer negid);
-	public void deleteNegocio(Integer negid);
+	public List<Negocio>getNegociosUsuario(Long usuid);
+	public Negocio findById(Long negid);
+	public void deleteNegocio(Long negid);
 }

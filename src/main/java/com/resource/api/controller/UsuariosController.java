@@ -20,7 +20,7 @@ import com.resource.api.entity.Usuario;
 import com.resource.api.service.IUsuariosService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://businessmanagerapp.herokuapp.com/")
 @RequestMapping("/api")
 public class UsuariosController {
 	
@@ -34,7 +34,7 @@ public class UsuariosController {
 	}
 	
 	@GetMapping("/usuarios/{usuid}")
-	public Usuario findUserById(@PathVariable(value="usuid")Integer usuid) {
+	public Usuario findUserById(@PathVariable(value="usuid")Long usuid) {
 		Usuario user = usuarioService.findById(usuid);
 		return user;
 	}
@@ -49,7 +49,7 @@ public class UsuariosController {
 		}
 	}
 	@PutMapping("/usuarios/{usuid}")
-	public ResponseEntity<?>updateUsuario(@PathVariable(value="usuid")Integer usuid,@RequestBody Usuario usuario){
+	public ResponseEntity<?>updateUsuario(@PathVariable(value="usuid")Long usuid,@RequestBody Usuario usuario){
 		Usuario usuarioDb=null;	
 		usuarioDb=usuarioService.findById(usuid);
 		if(usuarioDb!=null) {
@@ -70,7 +70,7 @@ public class UsuariosController {
 		
 	}
 	@DeleteMapping("/usuarios/{usuid}")
-	public ResponseEntity<Void>deleteUsuario(@PathVariable(value="usuid")Integer usuid){
+	public ResponseEntity<Void>deleteUsuario(@PathVariable(value="usuid")Long usuid){
 		usuarioService.deleteUsuario(usuid);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}

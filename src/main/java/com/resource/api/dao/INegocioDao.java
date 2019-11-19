@@ -6,8 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.resource.api.entity.Negocio;
 
-public interface INegocioDao extends CrudRepository<Negocio,Integer>{
+public interface INegocioDao extends CrudRepository<Negocio, Long>{
 
-	public List<Negocio>findByNegusuario(Integer negusuario);
+	public List<Negocio>findByNegusuario(Long negusuario);
 	
 }

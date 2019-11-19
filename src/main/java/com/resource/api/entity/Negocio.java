@@ -19,7 +19,7 @@ public class Negocio implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer negid;
+	private Long negid;
 	private String negnombre;
 	private String negdetalles;
 	private String negdireccion;
@@ -50,10 +50,10 @@ public class Negocio implements Serializable{
 	public void setNegusuario(Integer negusuario) {
 		this.negusuario = negusuario;
 	}
-	public Integer getNegid() {
+	public Long getNegid() {
 		return negid;
 	}
-	public void setNegid(Integer negid) {
+	public void setNegid(Long negid) {
 		this.negid = negid;
 	}
 	public String getNegnombre() {

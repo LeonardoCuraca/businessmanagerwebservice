@@ -20,7 +20,7 @@ import com.resource.api.entity.Usuario;
 import com.resource.api.service.INegociosService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://businessmanagerapp.herokuapp.com/")
 @RequestMapping("/api")
 public class NegociosController {
 
@@ -62,7 +62,7 @@ public class NegociosController {
 	}
 
 	@PutMapping("/negocio/{negid}")
-	public ResponseEntity<?> updateNegocio(@PathVariable(value ="negid") Integer negid,@RequestBody Negocio negocio) {
+	public ResponseEntity<?> updateNegocio(@PathVariable(value ="negid")Long negid,@RequestBody Negocio negocio) {
 		Negocio negDb = null;
 		negDb=negocioService.findById(negid);
 		if (negDb != null) {
@@ -83,7 +83,7 @@ public class NegociosController {
 		}
 	}
 	@DeleteMapping("/negocio/{negid}")
-	public ResponseEntity<?>deleteNegocio(@PathVariable(value="negid")Integer negid){
+	public ResponseEntity<?>deleteNegocio(@PathVariable(value="negid")Long negid){
 		negocioService.deleteNegocio(negid);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}

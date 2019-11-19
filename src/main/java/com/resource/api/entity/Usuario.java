@@ -19,7 +19,7 @@ public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer usuid;
+	private Long usuid;
 	private String usunombre;
 	private String usuapellido;
 	private String usuemail;
@@ -40,10 +40,10 @@ public class Usuario implements Serializable{
 	public void setNegocio(List<Negocio> negocio) {
 		this.negocio = negocio;
 	}
-	public Integer getUsuid() {
+	public Long getUsuid() {
 		return usuid;
 	}
-	public void setUsuid(Integer usuid) {
+	public void setUsuid(Long usuid) {
 		this.usuid = usuid;
 	}
 	public String getUsunombre() {

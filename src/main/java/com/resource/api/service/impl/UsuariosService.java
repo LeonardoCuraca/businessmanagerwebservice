@@ -39,13 +39,13 @@ public class UsuariosService implements IUsuariosService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Optional<Usuario> findUsuarioById(Integer usuid) {
+	public Optional<Usuario> findUsuarioById(Long usuid) {
 		return(Optional<Usuario>)usuarioDao.findById(usuid);
 	}
 
 	@Override
 	@Transactional
-	public void deleteUsuario(Integer usuid) {
+	public void deleteUsuario(Long usuid) {
 		usuarioDao.deleteById(usuid);
 		
 	}
@@ -59,7 +59,7 @@ public class UsuariosService implements IUsuariosService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Usuario findById(Integer usuid) {
+	public Usuario findById(Long usuid) {
 		return usuarioDao.findById(usuid).orElse(null);
 	}
 	

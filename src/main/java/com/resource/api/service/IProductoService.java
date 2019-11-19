@@ -10,6 +10,6 @@ public interface IProductoService {
 	
 	public void saveProducto(Producto producto);
 	
-	public List<Producto>getProductosNegocio(Integer negid);
+	public List<Producto>getProductosNegocio(Long negid);
 	
 }

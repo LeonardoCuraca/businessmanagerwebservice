@@ -29,7 +29,7 @@ public class NegociosService implements INegociosService{
 	}
 	
 	@Override
-	public List<Negocio> getNegociosUsuario(Integer usuid) {
+	public List<Negocio> getNegociosUsuario(Long usuid) {
 		return (List<Negocio>)negocioDao.findByNegusuario(usuid);
 	}
 
@@ -40,12 +40,12 @@ public class NegociosService implements INegociosService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public Negocio findById(Integer negid) {
+	public Negocio findById(Long negid) {
 		return negocioDao.findById(negid).orElse(null);
 	}
 
 	@Override
-	public void deleteNegocio(Integer negid) {
+	public void deleteNegocio(Long negid) {
 		negocioDao.deleteById(negid);
 	}
 

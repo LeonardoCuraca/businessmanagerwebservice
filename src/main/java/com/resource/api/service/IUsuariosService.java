@@ -13,7 +13,7 @@ public interface IUsuariosService {
 	public Usuario findUsuario(Usuario usuario);
 	public void save(Usuario usuario);
 	public  Usuario updateUsuario(Usuario usuario);
-	public Optional<Usuario>findUsuarioById(Integer usuid);
-	public void deleteUsuario(Integer usuid);
-	public Usuario findById(Integer usuid);
+	public Optional<Usuario>findUsuarioById(Long usuid);
+	public void deleteUsuario(Long usuid);
+	public Usuario findById(Long usuid);
 }
