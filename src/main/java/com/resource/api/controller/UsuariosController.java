@@ -20,7 +20,7 @@ import com.resource.api.entity.Usuario;
 import com.resource.api.service.IUsuariosService;
 
 @RestController
-@CrossOrigin(origins = "https://businessmanagerapp.herokuapp.com/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class UsuariosController {
 	

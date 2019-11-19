@@ -17,7 +17,7 @@ import com.resource.api.entity.Producto;
 import com.resource.api.service.IProductoService;
 
 @RestController
-@CrossOrigin(origins = "https://businessmanagerapp.herokuapp.com/")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class ProductosController {
 		
