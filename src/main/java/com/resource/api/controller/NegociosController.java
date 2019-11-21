@@ -41,7 +41,7 @@ public class NegociosController {
 		}
 	}
 	
-	@GetMapping("/negocios/{negid}")
+	@GetMapping("/negocio/{negid}")
 	public Negocio obtener(@PathVariable(value="negid")Long negid){
 		Negocio negocio=negocioService.findById(negid);
 		return negocio;
