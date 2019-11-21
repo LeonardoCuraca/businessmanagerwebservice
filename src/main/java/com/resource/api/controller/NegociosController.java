@@ -40,6 +40,12 @@ public class NegociosController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@GetMapping("/negocios/{negid}")
+	public Negocio obtener(@PathVariable(value="negid")Long negid){
+		Negocio negocio=negocioService.findById(negid);
+		return negocio;
+	}
 
 	@PostMapping("/negocio")
 	public ResponseEntity<?> agregarNegocio(@RequestBody Negocio negocio) {
