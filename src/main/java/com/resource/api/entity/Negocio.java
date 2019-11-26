@@ -35,7 +35,7 @@ public class Negocio implements Serializable{
 	private String negcelular;
 	private String neglogo;
 	private String negestado;
-	private Integer negusuario;
+	private Long negusuario;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="proneg",referencedColumnName="negid")
@@ -66,10 +66,10 @@ public class Negocio implements Serializable{
 	public Negocio() {
 		
 	}
-	public Integer getNegusuario() {
+	public Long getNegusuario() {
 		return negusuario;
 	}
-	public void setNegusuario(Integer negusuario) {
+	public void setNegusuario(Long negusuario) {
 		this.negusuario = negusuario;
 	}
 
