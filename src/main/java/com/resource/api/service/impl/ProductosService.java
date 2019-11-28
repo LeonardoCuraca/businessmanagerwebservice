@@ -33,5 +33,21 @@ public class ProductosService implements IProductoService{
 		return(List<Producto>)productoDao.findByProneg(negid);
 	}
 
+	@Override
+	public Producto updateProducto(Producto producto) {
+		return(Producto)productoDao.save(producto);
+	}
+
+	@Override
+	public Producto findById(Long proid) {
+		return productoDao.findById(proid).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public void deleteProducto(Long proid) {
+		productoDao.deleteById(proid);	
+	}
+
 	
 }
