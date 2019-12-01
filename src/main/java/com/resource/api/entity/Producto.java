@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name="productos")
 public class Producto implements Serializable{
 	
+	/**
+	 * 
+	 */
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long proid;
@@ -19,7 +23,7 @@ public class Producto implements Serializable{
 	private Integer prostock;
 	private double proprecio;
 	private String prodetalles;
-	private Integer proneg;
+	private Long proneg;
 
 	public Producto() {
 		
@@ -28,7 +32,6 @@ public class Producto implements Serializable{
 	public Long getProid() {
 		return proid;
 	}
-
 
 	public void setProid(Long proid) {
 		this.proid = proid;
@@ -45,6 +48,7 @@ public class Producto implements Serializable{
 	public String getPronombre() {
 		return pronombre;
 	}
+
 	public void setPronombre(String pronombre) {
 		this.pronombre = pronombre;
 	}
@@ -60,6 +64,7 @@ public class Producto implements Serializable{
 	public double getProprecio() {
 		return proprecio;
 	}
+
 	public void setProprecio(double proprecio) {
 		this.proprecio = proprecio;
 	}
@@ -72,22 +77,20 @@ public class Producto implements Serializable{
 		this.prodetalles = prodetalles;
 	}
 
-	public Integer getProneg() {
+	public Long getProneg() {
 		return proneg;
 	}
-	public void setProneg(Integer proneg) {
+
+	public void setProneg(Long proneg) {
 		this.proneg = proneg;
 	}
-	private static final long serialVersionUID=1L;
-
+	private static final long serialVersionUID = 1L;
+	
 	@Override
 	public String toString() {
 		return "Producto [proid=" + proid + ", procodigo=" + procodigo + ", pronombre=" + pronombre + ", prostock="
-				+ prostock + ", proprecio=" + proprecio + ", prodetalles=" + prodetalles + ", proneg=" + proneg
-				+ ", getProid()=" + getProid() + ", getProcodigo()=" + getProcodigo() + ", getPronombre()="
-				+ getPronombre() + ", getProstock()=" + getProstock() + ", getProprecio()=" + getProprecio()
-				+ ", getProdetalles()=" + getProdetalles() + ", getProneg()=" + getProneg() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ prostock + ", proprecio=" + proprecio + ", prodetalles=" + prodetalles + ", proneg=" + proneg + "]";
 	}
 
+	
 }

@@ -10,11 +10,12 @@ public interface IEmpleadoService {
 	
 	public void saveEmpleado(Empleado empleado);
 	
-	public Empleado findEmpleadoById(Long empid);
-	
-	public Empleado findById(Long empid);
+	public List<Empleado>getEmpleadosNegocio(Long negid);
 	
 	public Empleado updateEmpleado(Empleado empleado);
 	
+	public Empleado findById(Long empid);
+	
 	public void deleteEmpleado(Long empid);
+
 }

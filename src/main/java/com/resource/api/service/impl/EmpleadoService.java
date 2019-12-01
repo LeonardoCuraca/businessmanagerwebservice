@@ -21,32 +21,28 @@ public class EmpleadoService implements IEmpleadoService {
 	@Override
 	@Transactional(readOnly=true)
 	public List<Empleado> findAll() {
-		
 		return(List<Empleado>)empleadoDao.findAll();
 	}
 
 	@Override
-	@Transactional
 	public void saveEmpleado(Empleado empleado) {
 		empleadoDao.save(empleado);
-		
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public Empleado findEmpleadoById(Long empid) {
-		return empleadoDao.findByIdSQL(empid);
-	}
-
-	@Override
-	@Transactional(readOnly=true)
-	public Empleado findById(Long empid) {
-		return empleadoDao.findById(empid).orElseThrow(() -> new EntityNotFoundException("No existe registro"));
+	public List<Empleado> getEmpleadosNegocio(Long negid) {
+		return(List<Empleado>)empleadoDao.findByEmpneg(negid);
 	}
 
 	@Override
 	public Empleado updateEmpleado(Empleado empleado) {
 		return(Empleado)empleadoDao.save(empleado);
+	}
+
+	@Override
+	public Empleado findById(Long empid) {
+		return empleadoDao.findById(empid).orElseThrow(() -> new EntityNotFoundException("No existe registro"));
 	}
 
 	@Override

@@ -40,20 +40,18 @@ public class NegociosController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
 	@GetMapping("/negocio/{negid}")
-	public Negocio obtener(@PathVariable(value="negid")Long negid){
+	public Negocio obtener(@PathVariable(value="negid")Long negid) {
 		Negocio negocio=negocioService.findById(negid);
 		return negocio;
 	}
-
 	@PostMapping("/negocio")
 	public ResponseEntity<?> agregarNegocio(@RequestBody Negocio negocio) {
 		negocioService.saveNegocio(negocio);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
-	@PostMapping("/negocio_buscar")
+	@PostMapping("/negocio/buscar")
 	public ResponseEntity<?> verNegociosUsuario(@RequestBody Usuario usuario) {
 		List<Negocio> listaNegocios = negocioService.getNegociosUsuario(usuario.getUsuid());
 		if (listaNegocios != null) {
@@ -68,7 +66,7 @@ public class NegociosController {
 	}
 
 	@PutMapping("/negocio/{negid}")
-	public ResponseEntity<?> updateNegocio(@PathVariable(value ="negid")Long negid,@RequestBody Negocio negocio) {
+	public ResponseEntity<?> updateNegocio(@PathVariable(value ="negid") Long negid,@RequestBody Negocio negocio) {
 		Negocio negDb = null;
 		negDb=negocioService.findById(negid);
 		if (negDb != null) {

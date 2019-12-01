@@ -42,7 +42,7 @@ public class ProductosController {
 		
 	}
 	@GetMapping("/productos/{proid}")
-	public Producto buscar(@PathVariable(value="proid") Long proid) {
+	public Producto obtener(@PathVariable(value="proid")Long proid) {
 		Producto producto=productoService.findById(proid);
 		return producto;
 	}

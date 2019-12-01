@@ -6,7 +6,7 @@ import com.resource.api.entity.Producto;
 
 public interface IProductoService {
 	
-public List<Producto>findAll();
+	public List<Producto>findAll();
 	
 	public void saveProducto(Producto producto);
 	

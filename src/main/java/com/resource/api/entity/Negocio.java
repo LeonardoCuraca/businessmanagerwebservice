@@ -2,9 +2,7 @@ package com.resource.api.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,12 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="negocios")
@@ -36,26 +31,23 @@ public class Negocio implements Serializable{
 	private String neglogo;
 	private String negestado;
 	private Long negusuario;
+
+
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="empneg",referencedColumnName="negid")
+	private List<Empleado> empleado=new ArrayList<>();
+	
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="proneg",referencedColumnName="negid")
 	private List<Producto> producto=new ArrayList<>();
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JsonBackReference
-	@JoinTable(name="negocios_empleados",
-	joinColumns=@JoinColumn(name="negocio_id",referencedColumnName="negid"),
-			inverseJoinColumns=@JoinColumn(name="empleado_id",referencedColumnName="empid"))
-	
-	private Set<Empleado>empleados=new HashSet<Empleado>();
-	
-	
 
-	public Set<Empleado> getEmpleados() {
-		return empleados;
+	public List<Empleado> getEmpleado() {
+		return empleado;
 	}
-	public void setEmpleados(Set<Empleado> empleados) {
-		this.empleados = empleados;
+	public void setEmpleado(List<Empleado> empleado) {
+		this.empleado = empleado;
 	}
 	public List<Producto> getProducto() {
 		return producto;
@@ -63,16 +55,17 @@ public class Negocio implements Serializable{
 	public void setProducto(List<Producto> producto) {
 		this.producto = producto;
 	}
+	
 	public Negocio() {
 		
 	}
+	
 	public Long getNegusuario() {
 		return negusuario;
 	}
 	public void setNegusuario(Long negusuario) {
 		this.negusuario = negusuario;
 	}
-
 	public Long getNegid() {
 		return negid;
 	}
@@ -134,11 +127,8 @@ public class Negocio implements Serializable{
 		this.negestado = negestado;
 	}
 	
-	public void addEmpleado(Empleado empleado) {
-		this.empleados.add(empleado);
-	}
-	private static final long serialVersionUID=1L;
 
+	private static final long serialVersionUID=1L;
 
 	@Override
 	public String toString() {
@@ -149,3 +139,7 @@ public class Negocio implements Serializable{
 	}
 
 }
+	
+
+	
+

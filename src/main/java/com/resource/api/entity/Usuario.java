@@ -6,17 +6,19 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="Usuarios")
 public class Usuario implements Serializable{
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long usuid;
 	private String usunombre;
 	private String usuapellido;
@@ -28,16 +30,33 @@ public class Usuario implements Serializable{
 	private String usucelular;
 	
 	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="empneg",referencedColumnName="usuid")
+	
+	private List<Empleado> empleado=new ArrayList<>();
+	
+	
+	
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="negusuario",referencedColumnName="usuid")
+	
 	private List<Negocio> negocio=new ArrayList<>();
 	
 
+
+	
+	public List<Empleado> getEmpleado() {
+		return empleado;
+	}
+	public void setEmpleado(List<Empleado> empleado) {
+		this.empleado = empleado;
+	}
 	public List<Negocio> getNegocio() {
 		return negocio;
 	}
 	public void setNegocio(List<Negocio> negocio) {
 		this.negocio = negocio;
 	}
+	
 	public Long getUsuid() {
 		return usuid;
 	}
@@ -93,12 +112,13 @@ public class Usuario implements Serializable{
 		this.usucelular = usucelular;
 	}
 	private static final long serialVersionUID=1L;
-	
+
+
 	@Override
 	public String toString() {
 		return "Usuario [usuid=" + usuid + ", usunombre=" + usunombre + ", usuapellido=" + usuapellido + ", usuemail="
 				+ usuemail + ", usugenero=" + usugenero + ", usudetalle=" + usudetalle + ", usudireccion="
-				+ usudireccion + ", usufoto=" + usufoto + ", usucelular=" + usucelular + "]";
+				+ usudireccion + ", usufoto=" + usufoto + ", usucelular=" + usucelular + ", negocio=" + negocio + "]";
 	}
 	
 

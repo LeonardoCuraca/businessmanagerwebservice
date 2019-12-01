@@ -2,6 +2,8 @@ package com.resource.api.service.impl;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,7 @@ import com.resource.api.service.IProductoService;
 @Service
 public class ProductosService implements IProductoService{
 	
+
 	@Autowired(required=true)
 	private IProductoDao productoDao;
 	
@@ -40,13 +43,12 @@ public class ProductosService implements IProductoService{
 
 	@Override
 	public Producto findById(Long proid) {
-		return productoDao.findById(proid).orElse(null);
+		return productoDao.findById(proid).orElseThrow(() -> new EntityNotFoundException("No existe registro"));
 	}
 
 	@Override
-	@Transactional(readOnly=true)
 	public void deleteProducto(Long proid) {
-		productoDao.deleteById(proid);	
+		productoDao.deleteById(proid);
 	}
 
 	

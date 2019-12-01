@@ -15,7 +15,7 @@ import com.resource.api.service.IUsuariosService;
 
 @Service
 public class UsuariosService implements IUsuariosService {
-	
+
 	@Autowired
 	private IUsuarioDao usuarioDao;
 

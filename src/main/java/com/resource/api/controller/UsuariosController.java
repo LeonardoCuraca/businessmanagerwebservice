@@ -32,11 +32,10 @@ public class UsuariosController {
 	public List<Usuario>getUsuarios(){
 		return usuarioService.findAll();
 	}
-	
 	@GetMapping("/usuarios/{usuid}")
-	public Usuario findUserById(@PathVariable(value="usuid")Long usuid) {
-		Usuario user = usuarioService.findById(usuid);
-		return user;
+	public Usuario obtener(@PathVariable(value="usuid")Long usuid) {
+		Usuario usuario=usuarioService.findById(usuid);
+		return usuario;
 	}
 	
 	@PostMapping("/usuarios")
