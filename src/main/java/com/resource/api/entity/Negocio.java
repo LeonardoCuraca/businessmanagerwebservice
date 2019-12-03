@@ -30,6 +30,9 @@ public class Negocio implements Serializable{
 	private String negcelular;
 	private String neglogo;
 	private String negestado;
+	private Long negLong;
+	private Long negLati;
+	
 	private Long negusuario;
 
 
@@ -37,12 +40,24 @@ public class Negocio implements Serializable{
 	@JoinColumn(name="empneg",referencedColumnName="negid")
 	private List<Empleado> empleado=new ArrayList<>();
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="vennegocio",referencedColumnName="negid")
+	private List<Venta>venta=new ArrayList<>();
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="proneg",referencedColumnName="negid")
 	private List<Producto> producto=new ArrayList<>();
 	
-
+	
+	public List<Venta> getVenta() {
+		return venta;
+	}
+	public void setVenta(List<Venta> venta) {
+		this.venta = venta;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public List<Empleado> getEmpleado() {
 		return empleado;
 	}
@@ -127,15 +142,29 @@ public class Negocio implements Serializable{
 		this.negestado = negestado;
 	}
 	
+	public Long getNegLong() {
+		return negLong;
+	}
+	public void setNegLong(Long negLong) {
+		this.negLong = negLong;
+	}
+	public Long getNegLati() {
+		return negLati;
+	}
+	public void setNegLati(Long negLati) {
+		this.negLati = negLati;
+	}
 
 	private static final long serialVersionUID=1L;
+
 
 	@Override
 	public String toString() {
 		return "Negocio [negid=" + negid + ", negnombre=" + negnombre + ", negdetalles=" + negdetalles
 				+ ", negdireccion=" + negdireccion + ", negemail=" + negemail + ", negcodpostal=" + negcodpostal
 				+ ", negpassword=" + negpassword + ", negcelular=" + negcelular + ", neglogo=" + neglogo
-				+ ", negestado=" + negestado + ", negusuario=" + negusuario + ", producto=" + producto + "]";
+				+ ", negestado=" + negestado + ", negLong=" + negLong + ", negLati=" + negLati + ", negusuario="
+				+ negusuario + ", empleado=" + empleado + ", venta=" + venta + ", producto=" + producto + "]";
 	}
 
 }
