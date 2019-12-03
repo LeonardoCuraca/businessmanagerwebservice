@@ -40,7 +40,7 @@ public class UsuariosController {
 	
 	@PostMapping("/usuarios")
 	public ResponseEntity<Void>addUsuario(@RequestBody Usuario usuario){
-		Long id = usuario.getId();
+		Long id = usuario.getUsuid();
 		if(usuarioService.findById(id)==null) {
 			usuarioService.save(usuario);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
