@@ -18,7 +18,6 @@ import javax.persistence.Table;
 public class Usuario implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long usuid;
 	private String usunombre;
 	private String usuapellido;
