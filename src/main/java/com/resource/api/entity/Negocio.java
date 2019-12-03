@@ -30,8 +30,8 @@ public class Negocio implements Serializable{
 	private String negcelular;
 	private String neglogo;
 	private String negestado;
-	private Long negLong;
-	private Long negLati;
+	private double negLong;
+	private double negLati;
 	
 	private Long negusuario;
 
@@ -142,16 +142,16 @@ public class Negocio implements Serializable{
 		this.negestado = negestado;
 	}
 	
-	public Long getNegLong() {
+	public double getNegLong() {
 		return negLong;
 	}
-	public void setNegLong(Long negLong) {
+	public void setNegLong(double negLong) {
 		this.negLong = negLong;
 	}
-	public Long getNegLati() {
+	public double getNegLati() {
 		return negLati;
 	}
-	public void setNegLati(Long negLati) {
+	public void setNegLati(double negLati) {
 		this.negLati = negLati;
 	}
 
