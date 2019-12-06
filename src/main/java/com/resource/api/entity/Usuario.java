@@ -29,7 +29,7 @@ public class Usuario implements Serializable{
 	private String usucelular;
 	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="empneg",referencedColumnName="usuid")
+	@JoinColumn(name="empusu",referencedColumnName="usuid")
 	
 	private List<Empleado> empleado=new ArrayList<>();
 	
