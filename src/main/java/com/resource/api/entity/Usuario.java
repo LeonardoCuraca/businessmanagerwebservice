@@ -30,10 +30,11 @@ public class Usuario implements Serializable{
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="empusu",referencedColumnName="usuid")
-	
 	private List<Empleado> empleado=new ArrayList<>();
 	
-	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="soliusu",referencedColumnName="usuid")
+	private List<Solicitud> solicitud=new ArrayList<>();
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="negusuario",referencedColumnName="usuid")
@@ -41,7 +42,12 @@ public class Usuario implements Serializable{
 	private List<Negocio> negocio=new ArrayList<>();
 	
 
-
+	public List<Solicitud> getSolicitud() {
+		return solicitud;
+	}
+	public void setSolicitud(List<Solicitud> solicitud) {
+		this.solicitud = solicitud;
+	}
 	
 	public List<Empleado> getEmpleado() {
 		return empleado;

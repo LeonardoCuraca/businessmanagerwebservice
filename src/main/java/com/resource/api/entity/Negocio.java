@@ -34,7 +34,10 @@ public class Negocio implements Serializable{
 	private double negLati;
 	
 	private Long negusuario;
-
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="solineg",referencedColumnName="negid")
+	private List<Solicitud>solicitud=new ArrayList<>();
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="empneg",referencedColumnName="negid")
@@ -48,6 +51,12 @@ public class Negocio implements Serializable{
 	@JoinColumn(name="proneg",referencedColumnName="negid")
 	private List<Producto> producto=new ArrayList<>();
 	
+	public List<Solicitud> getSolicitud() {
+		return solicitud;
+	}
+	public void setSolicitud(List<Solicitud> solicitud) {
+		this.solicitud = solicitud;
+	}
 	
 	public List<Venta> getVenta() {
 		return venta;
