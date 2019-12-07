@@ -17,5 +17,7 @@ public interface IEmpleadoService {
 	public Empleado findById(Long empid);
 	
 	public void deleteEmpleado(Long empid);
+	
+	public List<Empleado> joinedList();
 
 }
