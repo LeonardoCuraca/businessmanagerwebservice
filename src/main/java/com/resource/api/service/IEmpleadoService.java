@@ -18,6 +18,6 @@ public interface IEmpleadoService {
 	
 	public void deleteEmpleado(Long empid);
 	
-	public List<Empleado> joinedList();
+	public List<Object> joinedList();
 
 }

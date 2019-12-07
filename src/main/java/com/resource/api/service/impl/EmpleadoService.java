@@ -52,7 +52,7 @@ public class EmpleadoService implements IEmpleadoService {
 	}
 
 	@Override
-	public List<Empleado> joinedList() {
+	public List<Object> joinedList() {
 		return empleadoDao.joinedList();
 	}
 
