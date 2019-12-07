@@ -50,10 +50,4 @@ public class EmpleadoService implements IEmpleadoService {
 		empleadoDao.deleteById(empid);
 		
 	}
-
-	@Override
-	public List<Object> joinedList() {
-		return empleadoDao.joinedList();
-	}
-
 }

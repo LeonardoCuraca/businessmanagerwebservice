@@ -31,7 +31,7 @@ public class EmpleadosController {
 	
 	@GetMapping("/empleados")
 	public ResponseEntity<?>listaEmpleados(){
-		List<Object>listaEmpleados=empleadoService.joinedList();
+		List<Empleado>listaEmpleados=empleadoService.findAll();
 		if(listaEmpleados!=null) {
 			if(listaEmpleados.size()!=0) {
 				return new ResponseEntity<>(listaEmpleados,HttpStatus.OK);
