@@ -79,6 +79,8 @@ public class NegociosController {
 			negDb.setNegcelular(negocio.getNegcelular());
 			negDb.setNeglogo(negocio.getNeglogo());
 			negDb.setNegestado(negocio.getNegestado());
+			negDb.setNegLong(negocio.getNegLong());
+			negDb.setNegLati(negocio.getNegLati());
 			negocioService.updateNegocio(negDb);
 			return new ResponseEntity<>(negDb, HttpStatus.OK);
 		} else {
