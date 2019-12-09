@@ -43,7 +43,8 @@ public class Empleado implements Serializable{
 	private Long empneg;
 	
 	private Long empusu;
-	
+	private String empestado;
+	private String empnombre;
 	
 	
 	@OneToMany(cascade=CascadeType.ALL)
@@ -122,6 +123,27 @@ public class Empleado implements Serializable{
 	public void setEmpusu(Long empusu) {
 		this.empusu = empusu;
 	}
+	
+	
+
+
+	public String getEmpestado() {
+		return empestado;
+	}
+
+	public void setEmpestado(String empestado) {
+		this.empestado = empestado;
+	}
+
+
+	public String getEmpnombre() {
+		return empnombre;
+	}
+
+	public void setEmpnombre(String empnombre) {
+		this.empnombre = empnombre;
+	}
+
 
 
 

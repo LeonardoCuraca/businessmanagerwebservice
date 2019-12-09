@@ -45,6 +45,11 @@ public class NegociosController {
 		Negocio negocio=negocioService.findById(negid);
 		return negocio;
 	}
+	@GetMapping("/negocio/{negid}/{negpassword}")
+	public Negocio login(@PathVariable(value="negid") Long negid, @PathVariable(value="negpassword") String negpassword) {
+		Negocio negocio=negocioService.login(negid, negpassword);
+		return negocio;
+	}
 	@PostMapping("/negocio")
 	public ResponseEntity<?> agregarNegocio(@RequestBody Negocio negocio) {
 		negocioService.saveNegocio(negocio);
@@ -81,6 +86,19 @@ public class NegociosController {
 			negDb.setNegestado(negocio.getNegestado());
 			negDb.setNegLong(negocio.getNegLong());
 			negDb.setNegLati(negocio.getNegLati());
+			negocioService.updateNegocio(negDb);
+			return new ResponseEntity<>(negDb, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+
+		}
+	}
+	@PutMapping("/negocio/{negid}/estado")
+	public ResponseEntity<?> updateNegocioEstado(@PathVariable(value ="negid") Long negid,@RequestBody Negocio negocio) {
+		Negocio negDb = null;
+		negDb=negocioService.findById(negid);
+		if (negDb != null) {
+			negDb.setNegestado(negocio.getNegestado());
 			negocioService.updateNegocio(negDb);
 			return new ResponseEntity<>(negDb, HttpStatus.OK);
 		} else {

@@ -19,4 +19,6 @@ public interface INegociosService {
 	
 	public void deleteNegocio(Long negid);
 	
+	public Negocio login(Long negid, String negpassword);
+	
 }

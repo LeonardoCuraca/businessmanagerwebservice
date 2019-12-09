@@ -49,6 +49,11 @@ public class NegociosService implements INegociosService{
 		negocioDao.deleteById(negid);
 	}
 
+	@Override
+	public Negocio login(Long negid, String negpassword) {
+		return negocioDao.login(negid, negpassword);
+	}
+
 
 
 }

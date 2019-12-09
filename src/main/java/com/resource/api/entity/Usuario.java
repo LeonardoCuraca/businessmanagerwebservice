@@ -26,7 +26,17 @@ public class Usuario implements Serializable{
 	private String usudetalle;
 	private String usudireccion;
 	private String usufoto;
+	private String usuPortada;
 	private String usucelular;
+	private int honestidad;
+	private int confianza;
+	private int creatividad;
+	private int comunicacion;
+	private int cooperacion;
+	private int respeto;
+	private int flexibilidad;
+	private int dedicacion;
+	private int iniciativa;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="empusu",referencedColumnName="usuid")
@@ -116,6 +126,73 @@ public class Usuario implements Serializable{
 	public void setUsucelular(String usucelular) {
 		this.usucelular = usucelular;
 	}
+	
+	public int getHonestidad() {
+		return honestidad;
+	}
+	public void setHonestidad(int honestidad) {
+		this.honestidad = honestidad;
+	}
+	public int getConfianza() {
+		return confianza;
+	}
+	public void setConfianza(int confianza) {
+		this.confianza = confianza;
+	}
+	public int getCreatividad() {
+		return creatividad;
+	}
+	public void setCreatividad(int creatividad) {
+		this.creatividad = creatividad;
+	}
+	public int getComunicacion() {
+		return comunicacion;
+	}
+	public void setComunicacion(int comunicacion) {
+		this.comunicacion = comunicacion;
+	}
+	public int getCooperacion() {
+		return cooperacion;
+	}
+	public void setCooperacion(int cooperacion) {
+		this.cooperacion = cooperacion;
+	}
+	public int getRespeto() {
+		return respeto;
+	}
+	public void setRespeto(int respeto) {
+		this.respeto = respeto;
+	}
+	public int getFlexibilidad() {
+		return flexibilidad;
+	}
+	public void setFlexibilidad(int flexibilidad) {
+		this.flexibilidad = flexibilidad;
+	}
+	public int getDedicacion() {
+		return dedicacion;
+	}
+	public void setDedicacion(int dedicacion) {
+		this.dedicacion = dedicacion;
+	}
+	public int getIniciativa() {
+		return iniciativa;
+	}
+	public void setIniciativa(int iniciativa) {
+		this.iniciativa = iniciativa;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	public String getUsuPortada() {
+		return usuPortada;
+	}
+	public void setUsuPortada(String usuPortada) {
+		this.usuPortada = usuPortada;
+	}
+
+
+
 	private static final long serialVersionUID=1L;
 
 

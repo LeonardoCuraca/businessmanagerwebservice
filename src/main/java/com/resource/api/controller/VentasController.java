@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.resource.api.entity.Empleado;
+import com.resource.api.entity.Producto;
 import com.resource.api.entity.Venta;
+import com.resource.api.service.IProductoService;
 import com.resource.api.service.IVentaService;
+import com.resource.api.service.impl.ProductosService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -26,6 +29,9 @@ public class VentasController {
 	
 	@Autowired
 	private IVentaService ventaService;
+	
+	@Autowired
+	private IProductoService iproductoservice;
 	
 	@GetMapping("/ventas")
 	public ResponseEntity<?>listaVentas(){
@@ -48,8 +54,15 @@ public class VentasController {
 	}
 	@PostMapping("/ventas")
 	public ResponseEntity<?>agregarProducto(@RequestBody Venta venta){
-		ventaService.saveVenta(venta);;
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+		Producto producto = iproductoservice.findById(venta.getVenproducto());
+		if (venta.getVencantidad() <= producto.getProstock()) {
+			ventaService.saveVenta(venta);
+			producto.setProstock(producto.getProstock() - venta.getVencantidad());
+			iproductoservice.updateProducto(producto); 
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
 	}
 	@PostMapping("/ventas/buscar")
 	public ResponseEntity<?>verVentasEmpleado(@RequestBody Empleado empleado){

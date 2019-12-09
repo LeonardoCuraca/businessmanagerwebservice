@@ -1,6 +1,7 @@
 package com.resource.api.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,9 +28,8 @@ public class Venta implements Serializable{
 	private double venprecio;
 	private double ventotal;
 	
-	@Column(name="venfecha")
-	@Temporal(TemporalType.DATE)
-	private Date venfecha;
+	@Column(name = "venfecha", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	public Timestamp venfecha;
 	
 	private Long vennegocio;
 	
@@ -73,11 +73,11 @@ public class Venta implements Serializable{
 		this.ventotal = ventotal;
 	}
 
-	public Date getVenfecha() {
+	public Timestamp getVenfecha() {
 		return venfecha;
 	}
 
-	public void setVenfecha(Date venfecha) {
+	public void setVenfecha(Timestamp venfecha) {
 		this.venfecha = venfecha;
 	}
 

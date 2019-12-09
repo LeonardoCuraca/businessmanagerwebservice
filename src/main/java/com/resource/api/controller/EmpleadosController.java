@@ -81,6 +81,18 @@ public class EmpleadosController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
+	@PutMapping("/empleados/{empid}/estado")
+	public ResponseEntity<?>updateEmpleadoEstado(@PathVariable(value="empid")Long empid,@RequestBody Empleado empleado){
+		Empleado empDb=null;
+		empDb=empleadoService.findById(empid);
+		if(empDb!=null) {
+			empDb.setEmpestado(empleado.getEmpestado());
+			empleadoService.updateEmpleado(empDb);
+			return new ResponseEntity<>(empDb,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	@DeleteMapping("/empleados/{empid}")
 	public ResponseEntity<?>deleteProducto(@PathVariable(value="empid")Long empid){

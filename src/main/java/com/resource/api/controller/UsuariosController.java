@@ -69,6 +69,56 @@ public class UsuariosController {
 		}
 		
 	}
+	@PutMapping("/usuarios/{usuid}/portada")
+	public ResponseEntity<?>updateUsuarioPortada(@PathVariable(value="usuid")Long usuid,@RequestBody Usuario usuario){
+		Usuario usuarioDb=null;	
+		usuarioDb=usuarioService.findById(usuid);
+		if(usuarioDb!=null) {
+			usuarioDb.setUsuPortada(usuario.getUsuPortada());
+			usuarioService.updateUsuario(usuarioDb);
+			return new ResponseEntity<>(usuarioDb,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+	}
+	@PutMapping("/usuarios/{usuid}/foto")
+	public ResponseEntity<?>updateUsuarioFoto(@PathVariable(value="usuid")Long usuid,@RequestBody Usuario usuario){
+		Usuario usuarioDb=null;	
+		usuarioDb=usuarioService.findById(usuid);
+		if(usuarioDb!=null) {
+			usuarioDb.setUsufoto(usuario.getUsufoto());
+			usuarioService.updateUsuario(usuarioDb);
+			return new ResponseEntity<>(usuarioDb,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+	}
+	@PutMapping("/usuarios/{usuid}/skills")
+	public ResponseEntity<?>updateUsuarioSkills(@PathVariable(value="usuid")Long usuid,@RequestBody Usuario usuario){
+		Usuario usuarioDb=null;	
+		usuarioDb=usuarioService.findById(usuid);
+		if(usuarioDb!=null) {
+			usuarioDb.setHonestidad(usuario.getHonestidad());
+			usuarioDb.setConfianza(usuario.getConfianza());
+			usuarioDb.setCreatividad(usuario.getCreatividad());
+			usuarioDb.setComunicacion(usuario.getComunicacion());
+			usuarioDb.setCooperacion(usuario.getCooperacion());
+			usuarioDb.setRespeto(usuario.getRespeto());
+			usuarioDb.setFlexibilidad(usuario.getFlexibilidad());
+			usuarioDb.setDedicacion(usuario.getDedicacion());
+			usuarioDb.setIniciativa(usuario.getIniciativa());
+			usuarioService.updateUsuario(usuarioDb);
+			return new ResponseEntity<>(usuarioDb,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+	}
 	@DeleteMapping("/usuarios/{usuid}")
 	public ResponseEntity<Void>deleteUsuario(@PathVariable(value="usuid")Long usuid){
 		usuarioService.deleteUsuario(usuid);

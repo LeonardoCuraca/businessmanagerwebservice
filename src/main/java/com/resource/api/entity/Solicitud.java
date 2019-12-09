@@ -1,7 +1,9 @@
 package com.resource.api.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +28,9 @@ public class Solicitud implements Serializable {
 	private String solimensaje;
 	private Long soliusu;
 	private Long solineg;
-	
+	@Column(name = "solifecha", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	public Timestamp solifecha;
+	public String soliimage;
 	
 	
 	
@@ -85,6 +89,25 @@ public class Solicitud implements Serializable {
 	public void setSolineg(Long solineg) {
 		this.solineg = solineg;
 	}
+	
+	
+	public Timestamp getSolifecha() {
+		return solifecha;
+	}
+
+	public void setSolifecha(Timestamp solifecha) {
+		this.solifecha = solifecha;
+	}
+
+	public String getSoliimage() {
+		return soliimage;
+	}
+
+	public void setSoliimage(String soliimage) {
+		this.soliimage = soliimage;
+	}
+
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
