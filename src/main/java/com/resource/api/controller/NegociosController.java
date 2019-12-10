@@ -45,7 +45,7 @@ public class NegociosController {
 		Negocio negocio=negocioService.findById(negid);
 		return negocio;
 	}
-	@GetMapping("/negocio/{negid}/{negpassword}")
+	@GetMapping("/negocio/login/{negid}/{negpassword}")
 	public Negocio login(@PathVariable(value="negid") Long negid, @PathVariable(value="negpassword") String negpassword) {
 		Negocio negocio=negocioService.login(negid, negpassword);
 		return negocio;
@@ -81,7 +81,7 @@ public class NegociosController {
 			negDb.setNegemail(negocio.getNegemail());
 			negDb.setNegcodpostal(negocio.getNegcodpostal());
 			negDb.setNegpassword(negocio.getNegpassword());
-			negDb.setNegcelular(negocio.getNegcelular());
+			negDb.setNegcelular(negocio.getNegcelular());		
 			negDb.setNegestado(negocio.getNegestado());
 			negocioService.updateNegocio(negDb);
 			return new ResponseEntity<>(negDb, HttpStatus.OK);
