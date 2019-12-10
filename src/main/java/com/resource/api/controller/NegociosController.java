@@ -82,10 +82,7 @@ public class NegociosController {
 			negDb.setNegcodpostal(negocio.getNegcodpostal());
 			negDb.setNegpassword(negocio.getNegpassword());
 			negDb.setNegcelular(negocio.getNegcelular());
-			negDb.setNeglogo(negocio.getNeglogo());
 			negDb.setNegestado(negocio.getNegestado());
-			negDb.setNegLong(negocio.getNegLong());
-			negDb.setNegLati(negocio.getNegLati());
 			negocioService.updateNegocio(negDb);
 			return new ResponseEntity<>(negDb, HttpStatus.OK);
 		} else {
@@ -99,6 +96,33 @@ public class NegociosController {
 		negDb=negocioService.findById(negid);
 		if (negDb != null) {
 			negDb.setNegestado(negocio.getNegestado());
+			negocioService.updateNegocio(negDb);
+			return new ResponseEntity<>(negDb, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+
+		}
+	}
+	@PutMapping("/negocio/{negid}/foto")
+	public ResponseEntity<?> updateNegocioFoto(@PathVariable(value ="negid") Long negid,@RequestBody Negocio negocio) {
+		Negocio negDb = null;
+		negDb=negocioService.findById(negid);
+		if (negDb != null) {
+			negDb.setNeglogo(negocio.getNeglogo());
+			negocioService.updateNegocio(negDb);
+			return new ResponseEntity<>(negDb, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+
+		}
+	}
+	@PutMapping("/negocio/{negid}/location")
+	public ResponseEntity<?> updateNegocioUbicacion(@PathVariable(value ="negid") Long negid,@RequestBody Negocio negocio) {
+		Negocio negDb = null;
+		negDb=negocioService.findById(negid);
+		if (negDb != null) {
+			negDb.setNegLati(negocio.getNegLati());
+			negDb.setNegLong(negocio.getNegLong());
 			negocioService.updateNegocio(negDb);
 			return new ResponseEntity<>(negDb, HttpStatus.OK);
 		} else {
